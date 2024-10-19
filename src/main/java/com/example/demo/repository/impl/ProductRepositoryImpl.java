@@ -22,8 +22,8 @@ public class ProductRepositoryImpl implements ProductRepository {
         StringBuilder sql = new StringBuilder(
                 "SELECT p.*, b.name AS brand_name, c.name AS category_name " +
                         "FROM products p " +
-                        "JOIN brand b ON p.brand_id = b.id " +
-                        "JOIN category c ON p.category_id = c.id " +
+                        "JOIN brands b ON p.brand_id = b.id " +
+                        "JOIN categories c ON p.category_id = c.id " +
                         "WHERE 1 = 1"
         );
         if (params.containsKey("id")) {
@@ -52,7 +52,7 @@ public class ProductRepositoryImpl implements ProductRepository {
             }
             sql.append(" ORDER BY " + params.get("sortBy") + " " + sortOrder);
         }
-
+        System.out.println(sql);
         List<ProductEntity> productEntities = new ArrayList<>();
         try(Connection conn = ConnectionJDBCUtil.getConnection();
             Statement stmt = conn.createStatement();

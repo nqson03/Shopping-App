@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/products")
+@RequestMapping("/api/products/")
 public class ProductController {
 
     @Autowired
@@ -20,6 +20,7 @@ public class ProductController {
     // hoặc lọc theo nhiều điều kiện:, name, brand_id, category_id, min_price,max price, sort
     @GetMapping
     public List<ProductResponse> findAll(@RequestParam Map<String,String> params){
+        System.out.println(params);
         return productService.findAll(params);
     }
 

@@ -27,9 +27,10 @@ public class ProductServiceImpl implements ProductService {
 
         List<ProductResponse> productResponses = new ArrayList<>();
         for(ProductEntity item : productEntities){
-            ProductResponse productResponse = modelMapper.map(productEntities,ProductResponse.class);
+            ProductResponse productResponse = modelMapper.map(item, ProductResponse.class);
             productResponses.add(productResponse);
         }
+
         return productResponses;
     }
 

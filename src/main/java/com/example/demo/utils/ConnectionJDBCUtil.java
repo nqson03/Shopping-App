@@ -5,18 +5,13 @@ import org.springframework.beans.factory.annotation.Value;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-import static org.hibernate.cfg.JdbcSettings.PASS;
-import static org.hibernate.cfg.JdbcSettings.USER;
-
 public class ConnectionJDBCUtil {
-    @Value("${DB_URL}")
-    private static String DB_URL;
 
-    @Value("${username}")
-    private static String USER;
+    private static String DB_URL = "jdbc:mysql://localhost:3306/shopapp";
 
-    @Value("${pass}")
-    private static String PASS;
+    private static String USER = "root";
+
+    private static String PASS = "123456";
 
     public static Connection getConnection(){
         Connection conn = null;
